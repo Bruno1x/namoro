@@ -152,11 +152,15 @@ function createHeart(x, y) {
 function createFallingSymbol(symbol, className) {
   const item = document.createElement("span");
   item.className = className;
-  item.textContent = symbol;
+  if (className === "falling-lily") {
+    item.innerHTML = "<span></span><span></span><span></span><span></span><span></span>";
+  } else {
+    item.textContent = symbol;
+  }
   item.style.left = `${Math.random() * 100}vw`;
   item.style.top = "-40px";
   item.style.animationDuration = `${2.6 + Math.random() * 2.2}s`;
-  item.style.fontSize = `${18 + Math.random() * 18}px`;
+  item.style.setProperty("--flower-size", `${34 + Math.random() * 22}px`);
   document.body.appendChild(item);
   item.addEventListener("animationend", () => item.remove());
 }
@@ -295,6 +299,8 @@ function spawnCatchLily() {
   const lily = document.createElement("button");
   lily.type = "button";
   lily.className = "catch-lily";
+  lily.innerHTML = "<span></span><span></span><span></span><span></span><span></span>";
+  lily.setAttribute("aria-label", "Pegar lirio");
   lily.style.left = `${Math.random() * 86 + 4}%`;
   lily.style.animationDuration = `${2.2 + Math.random() * 1.4}s`;
   lily.addEventListener("click", () => {
