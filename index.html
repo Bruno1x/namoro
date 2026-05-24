@@ -7,6 +7,19 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="gate" id="gate" aria-label="Entrada com senha">
+    <div class="gate-card">
+      <p class="eyebrow">So entra quem sabe</p>
+      <h2>Qual e a flor favorita dela?</h2>
+      <p>A dica ja esta no site: uma flor delicada, elegante e roxa por aqui.</p>
+      <form id="gateForm">
+        <input id="gatePassword" type="text" autocomplete="off" placeholder="Digite a senha">
+        <button type="submit">Entrar</button>
+      </form>
+      <small id="gateFeedback">Dica: começa com li.</small>
+    </div>
+  </div>
+
   <div class="cursor-glow" aria-hidden="true"></div>
   <div class="progress" aria-hidden="true"></div>
 
@@ -14,6 +27,7 @@
     <a class="brand" href="#inicio" aria-label="Voltar ao inicio">Meu amor</a>
     <nav aria-label="Navegacao principal">
       <a href="#sobre">Ela</a>
+      <a href="#tempo">Tempo</a>
       <a href="#fisio">Fisio</a>
       <a href="#lirios">Lirios</a>
       <a href="#jogos">Jogos</a>
@@ -38,11 +52,26 @@
           <a class="btn primary" href="#fisio">Ver seu futuro brilhando</a>
           <button class="btn ghost" type="button" id="surpriseBtn">Me da uma frase</button>
           <a class="btn music" href="#musica" id="playMusic">Nossa musica</a>
+          <button class="btn ghost" type="button" id="rainBtn">Chuva de lirios</button>
         </div>
       </div>
       <div class="hero-card reveal">
         <img src="assets/foto-09.jpeg" alt="Nos dois sorrindo juntos">
         <p>Eu te amo hoje, amanha e em todos os planos que ainda vamos realizar.</p>
+      </div>
+    </section>
+
+    <section class="section time-section" id="tempo">
+      <div class="time-card reveal">
+        <p class="eyebrow">Nosso tempo</p>
+        <h2>Ha <span id="daysTogether">0</span> dias eu tenho sorte.</h2>
+        <p id="timeText">Esse contador marca o quanto nossa historia continua crescendo.</p>
+      </div>
+      <div class="message-card reveal">
+        <p class="eyebrow">Mensagem surpresa</p>
+        <h3>Um lembrete aleatorio para voce</h3>
+        <p id="randomMessage">Clique no botao para receber uma frase feita so para ela.</p>
+        <button class="mini-btn purple" type="button" id="messageBtn">Nova mensagem</button>
       </div>
     </section>
 
@@ -190,6 +219,19 @@
           <p id="loveText">Resultado cientifico: voce e o amor da minha vida.</p>
           <button class="mini-btn" type="button" id="boostLove">Aumentar amor</button>
         </article>
+
+        <article class="game-card catch-card reveal">
+          <div class="game-topline">
+            <span>Lirios</span>
+            <strong id="catchScore">0 pts</strong>
+          </div>
+          <h3>Pegue os lirios dela</h3>
+          <p>Clique nos lirios antes deles cairem. Cada um vira uma frase carinhosa.</p>
+          <div class="catch-game" id="catchGame">
+            <button class="mini-btn purple" type="button" id="startCatch">Comecar</button>
+          </div>
+          <small id="catchMessage">Pronta para encher esse jardim?</small>
+        </article>
       </div>
     </section>
 
@@ -241,44 +283,58 @@
       </div>
     </section>
 
-    <section class="section timeline">
+    <section class="section timeline" id="linha-do-tempo">
       <div class="section-heading reveal">
-        <p class="eyebrow">Pequenas verdades</p>
-        <h2>Coisas que eu nunca quero que voce esqueca.</h2>
+        <p class="eyebrow">Linha do tempo</p>
+        <h2>Alguns capitulos bonitos da nossa historia.</h2>
       </div>
       <div class="timeline-list">
         <article class="timeline-item reveal">
-          <span>Amor</span>
-          <p>Voce e meu carinho mais bonito, minha paz em dia baguncado e minha vontade de fazer dar certo.</p>
+          <span>Comeco</span>
+          <p>A fase em que tudo foi virando assunto, saudade e vontade de ficar cada vez mais perto.</p>
         </article>
         <article class="timeline-item reveal">
-          <span>Orgulho</span>
-          <p>Eu tenho orgulho da mulher que voce e e da profissional gigante que voce esta virando.</p>
+          <span>Fotos</span>
+          <p>Cada espelho, sorriso e pose boba virou prova de que a gente combina ate no improviso.</p>
         </article>
         <article class="timeline-item reveal">
           <span>Futuro</span>
-          <p>Seu sucesso nao e sorte. E consequencia da sua dedicacao, do seu coracao e da sua coragem.</p>
+          <p>Daqui para frente tem muito sonho, muita conquista e muita comemoracao nossa pela frente.</p>
         </article>
       </div>
     </section>
 
     <section class="letter" id="carta">
-      <div class="letter-paper reveal">
-        <p class="eyebrow">Uma carta pequena, mas sincera</p>
-        <h2>Para voce, meu amor</h2>
-        <p>
-          Eu queria te dar algo que ficasse guardado de um jeito diferente. Entao fiz esse site para voce lembrar que e amada, admirada e vista. Eu vejo seu esforco, sua beleza, seu jeito de cuidar, sua inteligencia e o tamanho do seu futuro.
-        </p>
-        <p>
-          Voce merece todo o sucesso. Merece dias leves, oportunidades enormes, conquistas bonitas e gente que reconheca o quanto voce e especial. E eu quero estar perto para comemorar cada passo.
-        </p>
-        <p class="signature">Com amor, do seu namorado.</p>
+      <div class="envelope reveal" id="envelope">
+        <button class="envelope-front" type="button" id="openLetter">
+          <span>abrir carta</span>
+        </button>
+        <div class="letter-paper">
+          <p class="eyebrow">Uma carta pequena, mas sincera</p>
+          <h2>Para voce, meu amor</h2>
+          <p>
+            Eu queria te dar algo que ficasse guardado de um jeito diferente. Entao fiz esse site para voce lembrar que e amada, admirada e vista. Eu vejo seu esforco, sua beleza, seu jeito de cuidar, sua inteligencia e o tamanho do seu futuro.
+          </p>
+          <p>
+            Voce merece todo o sucesso. Merece dias leves, oportunidades enormes, conquistas bonitas e gente que reconheca o quanto voce e especial. E eu quero estar perto para comemorar cada passo.
+          </p>
+          <p class="signature">Com amor, do seu namorado.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="secret-section">
+      <div class="secret-card reveal">
+        <p class="eyebrow">Final secreto</p>
+        <h2>Tem mais uma coisa.</h2>
+        <button class="btn primary" type="button" id="secretBtn">Desbloquear surpresa final</button>
+        <p id="secretText" hidden>Eu amo seu jeito, sua risada, sua coragem, seus sonhos, sua beleza e ate suas manias. Se esse site tivesse mil paginas, ainda faltaria espaco para dizer o quanto voce e especial para mim.</p>
       </div>
     </section>
   </main>
 
   <div class="modal" id="photoModal" aria-hidden="true" role="dialog" aria-label="Foto ampliada">
-    <button class="modal-close" type="button" aria-label="Fechar foto">×</button>
+    <button class="modal-close" type="button" aria-label="Fechar foto">x</button>
     <img src="assets/foto-01.jpeg" alt="">
     <p></p>
   </div>

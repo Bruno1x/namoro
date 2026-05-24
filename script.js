@@ -26,12 +26,37 @@ const quiz = [
 ];
 
 const memoryValues = ["amor", "fisio", "roxo", "sucesso", "amor", "fisio", "roxo", "sucesso"];
+const relationshipStart = "2024-01-01";
+const randomMessages = [
+  "Voce e mais forte do que imagina e mais amada do que consegue medir.",
+  "Seu futuro como fisioterapeuta vai ser lindo porque voce cuida com o coracao.",
+  "Eu amo o jeito que voce transforma momentos simples em lembrancas favoritas.",
+  "Quando o dia pesar, lembra: voce nao esta sozinha, eu estou com voce.",
+  "Voce merece uma vida roxa de tao bonita: cheia de carinho, paz e conquista.",
+  "Seu sorriso continua sendo uma das minhas partes favoritas do mundo."
+];
+const catchMessages = [
+  "Um lirio para lembrar que voce floresce.",
+  "Outro lirio porque voce merece jardim inteiro.",
+  "Esse aqui veio com orgulho de voce.",
+  "Lirio pego, amor aumentado.",
+  "Voce e delicada, mas tambem e gigante."
+];
 
+const gate = document.querySelector("#gate");
+const gateForm = document.querySelector("#gateForm");
+const gatePassword = document.querySelector("#gatePassword");
+const gateFeedback = document.querySelector("#gateFeedback");
 const progress = document.querySelector(".progress");
 const glow = document.querySelector(".cursor-glow");
 const quoteText = document.querySelector("#quoteText");
 const nextQuote = document.querySelector("#nextQuote");
 const surpriseBtn = document.querySelector("#surpriseBtn");
+const rainBtn = document.querySelector("#rainBtn");
+const daysTogether = document.querySelector("#daysTogether");
+const timeText = document.querySelector("#timeText");
+const randomMessage = document.querySelector("#randomMessage");
+const messageBtn = document.querySelector("#messageBtn");
 const modal = document.querySelector("#photoModal");
 const modalImg = modal.querySelector("img");
 const modalCaption = modal.querySelector("p");
@@ -47,6 +72,14 @@ const boostLove = document.querySelector("#boostLove");
 const loveMeter = document.querySelector("#loveMeter");
 const lovePercent = document.querySelector("#lovePercent");
 const loveText = document.querySelector("#loveText");
+const catchGame = document.querySelector("#catchGame");
+const catchScore = document.querySelector("#catchScore");
+const catchMessage = document.querySelector("#catchMessage");
+const startCatch = document.querySelector("#startCatch");
+const envelope = document.querySelector("#envelope");
+const openLetter = document.querySelector("#openLetter");
+const secretBtn = document.querySelector("#secretBtn");
+const secretText = document.querySelector("#secretText");
 
 let quoteIndex = 0;
 let quizIndex = 0;
@@ -54,11 +87,42 @@ let quizHits = 0;
 let loveValue = 100;
 let flippedCards = [];
 let matchedPairs = 0;
+let catchPoints = 0;
+let catchTimer = null;
 
 function updateProgress() {
   const max = document.documentElement.scrollHeight - window.innerHeight;
   const percent = max <= 0 ? 0 : (window.scrollY / max) * 100;
   progress.style.width = `${percent}%`;
+}
+
+function unlockSite() {
+  gate.classList.add("hidden");
+  document.body.classList.remove("locked");
+  window.setTimeout(() => gate.remove(), 500);
+}
+
+function checkGate(event) {
+  event.preventDefault();
+  const answer = gatePassword.value.trim().toLowerCase();
+  const normalized = answer.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  if (["lirio", "lirios"].includes(normalized)) {
+    unlockSite();
+    rainFlowers(18);
+    return;
+  }
+
+  gateFeedback.textContent = "Quase. E a flor que ela ama.";
+  gatePassword.select();
+}
+
+function updateRelationshipTime() {
+  const start = new Date(`${relationshipStart}T00:00:00`);
+  const today = new Date();
+  const diff = today - start;
+  const days = Math.max(0, Math.floor(diff / 86400000));
+  daysTogether.textContent = String(days);
+  timeText.textContent = `Desde ${start.toLocaleDateString("pt-BR")} nossa historia vem ganhando mais motivos para sorrir.`;
 }
 
 function showNextQuote() {
@@ -83,6 +147,26 @@ function createHeart(x, y) {
   heart.style.top = `${y}px`;
   document.body.appendChild(heart);
   heart.addEventListener("animationend", () => heart.remove());
+}
+
+function createFallingSymbol(symbol, className) {
+  const item = document.createElement("span");
+  item.className = className;
+  item.textContent = symbol;
+  item.style.left = `${Math.random() * 100}vw`;
+  item.style.top = "-40px";
+  item.style.animationDuration = `${2.6 + Math.random() * 2.2}s`;
+  item.style.fontSize = `${18 + Math.random() * 18}px`;
+  document.body.appendChild(item);
+  item.addEventListener("animationend", () => item.remove());
+}
+
+function rainFlowers(amount = 28) {
+  for (let index = 0; index < amount; index += 1) {
+    setTimeout(() => {
+      createFallingSymbol(index % 3 === 0 ? "\u2665" : "lirio", index % 3 === 0 ? "falling-heart" : "falling-lily");
+    }, index * 70);
+  }
 }
 
 function openModal(button) {
@@ -201,6 +285,63 @@ function boostLoveMeter() {
     : "Subindo, mas ja estava no maximo desde o comeco.";
 }
 
+function showRandomMessage() {
+  const message = randomMessages[Math.floor(Math.random() * randomMessages.length)];
+  randomMessage.textContent = message;
+  rainFlowers(8);
+}
+
+function spawnCatchLily() {
+  const lily = document.createElement("button");
+  lily.type = "button";
+  lily.className = "catch-lily";
+  lily.style.left = `${Math.random() * 86 + 4}%`;
+  lily.style.animationDuration = `${2.2 + Math.random() * 1.4}s`;
+  lily.addEventListener("click", () => {
+    catchPoints += 1;
+    catchScore.textContent = `${catchPoints} pts`;
+    catchMessage.textContent = catchMessages[catchPoints % catchMessages.length];
+    createHeart(window.innerWidth / 2, window.innerHeight / 2);
+    lily.remove();
+  });
+  lily.addEventListener("animationend", () => lily.remove());
+  catchGame.appendChild(lily);
+}
+
+function startCatchGame() {
+  catchPoints = 0;
+  catchScore.textContent = "0 pts";
+  catchMessage.textContent = "Valendo. Pega todos os lirios que conseguir.";
+  catchGame.querySelectorAll(".catch-lily").forEach(item => item.remove());
+  startCatch.style.display = "none";
+
+  let rounds = 0;
+  clearInterval(catchTimer);
+  catchTimer = setInterval(() => {
+    spawnCatchLily();
+    rounds += 1;
+    if (rounds >= 16) {
+      clearInterval(catchTimer);
+      catchTimer = null;
+      startCatch.style.display = "";
+      catchMessage.textContent = catchPoints >= 10
+        ? "Jardim completo. Ela merece todos."
+        : "Fim de rodada. Da para tentar de novo e encher o jardim.";
+    }
+  }, 520);
+}
+
+function openEnvelope() {
+  envelope.classList.add("open");
+  rainFlowers(14);
+}
+
+function revealSecret() {
+  secretText.hidden = false;
+  secretBtn.textContent = "Surpresa desbloqueada";
+  rainFlowers(32);
+}
+
 const revealObserver = new IntersectionObserver(
   entries => {
     entries.forEach(entry => {
@@ -237,8 +378,14 @@ surpriseBtn.addEventListener("click", event => {
   document.querySelector(".quote-band").scrollIntoView({ behavior: "smooth", block: "center" });
 });
 
+gateForm.addEventListener("submit", checkGate);
+rainBtn.addEventListener("click", () => rainFlowers(36));
+messageBtn.addEventListener("click", showRandomMessage);
 resetMemory.addEventListener("click", renderMemory);
 boostLove.addEventListener("click", boostLoveMeter);
+startCatch.addEventListener("click", startCatchGame);
+openLetter.addEventListener("click", openEnvelope);
+secretBtn.addEventListener("click", revealSecret);
 
 modalClose.addEventListener("click", closeModal);
 modal.addEventListener("click", event => {
@@ -264,6 +411,8 @@ document.addEventListener("click", event => {
 });
 
 updateProgress();
+updateRelationshipTime();
 renderQuiz();
 renderMemory();
+document.body.classList.add("locked");
 requestAnimationFrame(revealVisibleNow);
