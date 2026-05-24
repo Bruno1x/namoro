@@ -1136,6 +1136,112 @@ h3 {
   color: rgba(255, 255, 255, 0.78);
 }
 
+.read-me {
+  width: min(1180px, calc(100% - 32px));
+}
+
+.read-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.read-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 210px;
+  border: 1px solid rgba(87, 34, 119, 0.14);
+  border-radius: 8px;
+  padding: 24px;
+  color: white;
+  background:
+    linear-gradient(145deg, rgba(87, 34, 119, 0.94), rgba(124, 53, 216, 0.72)),
+    url("assets/foto-02.jpeg") center / cover;
+  background-blend-mode: multiply;
+  box-shadow: 0 18px 54px rgba(70, 24, 107, 0.16);
+  cursor: pointer;
+  text-align: left;
+}
+
+.read-card::before,
+.read-card::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 68%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.04));
+  clip-path: polygon(0 18%, 50% 62%, 100% 18%, 100% 100%, 0 100%);
+  transition: transform 0.28s ease;
+}
+
+.read-card::after {
+  inset: 0 0 auto;
+  height: 46%;
+  clip-path: polygon(0 0, 100% 0, 50% 82%);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.read-card:hover::after,
+.read-card:focus-visible::after {
+  transform: translateY(-10px);
+}
+
+.read-card span,
+.read-card strong {
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+
+.read-card span {
+  width: max-content;
+  margin-bottom: 58px;
+  border-radius: 999px;
+  padding: 8px 11px;
+  color: var(--wine);
+  background: white;
+  font-size: 0.8rem;
+  font-weight: 900;
+}
+
+.read-card strong {
+  max-width: 240px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.55rem;
+  line-height: 1;
+}
+
+.modal.letter-mode {
+  background: rgba(33, 21, 41, 0.9);
+}
+
+.modal.letter-mode img {
+  display: none;
+}
+
+.modal.letter-mode p {
+  width: min(720px, 100%);
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.46);
+  border-radius: 8px;
+  padding: clamp(28px, 5vw, 46px);
+  color: var(--ink);
+  background: linear-gradient(180deg, #fff, #f6e9ff);
+  box-shadow: var(--shadow);
+  text-align: left;
+  font-size: 1.12rem;
+  line-height: 1.75;
+}
+
+.modal.letter-mode p strong {
+  display: block;
+  margin-bottom: 14px;
+  color: var(--wine);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1;
+}
+
 .timeline-list {
   display: grid;
   gap: 12px;
@@ -1421,6 +1527,7 @@ h3 {
 
   .qualities,
   .love-notes,
+  .read-grid,
   .timeline-item,
   .game-grid {
     grid-template-columns: 1fr;

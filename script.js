@@ -174,6 +174,7 @@ function rainFlowers(amount = 28) {
 }
 
 function openModal(button) {
+  modal.classList.remove("letter-mode");
   modalImg.src = button.dataset.src;
   modalCaption.textContent = button.dataset.caption;
   modal.classList.add("open");
@@ -181,8 +182,18 @@ function openModal(button) {
   document.body.style.overflow = "hidden";
 }
 
+function openReadMe(button) {
+  modal.classList.add("letter-mode");
+  modalCaption.innerHTML = `<strong>${button.dataset.title}</strong>${button.dataset.message}`;
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+  rainFlowers(10);
+}
+
 function closeModal() {
   modal.classList.remove("open");
+  modal.classList.remove("letter-mode");
   modal.setAttribute("aria-hidden", "true");
   document.body.style.overflow = "";
 }
@@ -375,6 +386,10 @@ document.querySelectorAll(".photo").forEach(button => {
     openModal(button);
     createHeart(event.clientX, event.clientY);
   });
+});
+
+document.querySelectorAll(".read-card").forEach(button => {
+  button.addEventListener("click", () => openReadMe(button));
 });
 
 nextQuote.addEventListener("click", showNextQuote);
