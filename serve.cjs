@@ -10,7 +10,8 @@ const types = {
   ".js": "text/javascript; charset=utf-8",
   ".jpeg": "image/jpeg",
   ".jpg": "image/jpeg",
-  ".png": "image/png"
+  ".png": "image/png",
+  ".svg": "image/svg+xml; charset=utf-8"
 };
 
 http.createServer((req, res) => {

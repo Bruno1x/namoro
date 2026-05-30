@@ -3,379 +3,167 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Para o meu amor</title>
+  <meta name="description" content="BR GANG e uma marca independente de streetwear brasileiro.">
+  <meta name="theme-color" content="#090909">
+  <title>BR GANG | Streetwear Brasileiro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="gate" id="gate" aria-label="Entrada com senha">
-    <div class="gate-card">
-      <p class="eyebrow">So entra quem sabe</p>
-      <h2>Qual e a flor favorita dela?</h2>
-      <p>A dica ja esta no site: uma flor delicada, elegante e roxa por aqui.</p>
-      <form id="gateForm">
-        <input id="gatePassword" type="text" autocomplete="off" placeholder="Digite a senha">
-        <button type="submit">Entrar</button>
-      </form>
-      <small id="gateFeedback">Dica: começa com li.</small>
-    </div>
-  </div>
-
-  <div class="cursor-glow" aria-hidden="true"></div>
-  <div class="progress" aria-hidden="true"></div>
-
-  <header class="topbar">
-    <a class="brand" href="#inicio" aria-label="Voltar ao inicio">Meu amor</a>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="BR GANG">
+      <img src="assets/logo.png" alt="BR GANG">
+    </a>
     <nav aria-label="Navegacao principal">
-      <a href="#sobre">Ela</a>
-      <a href="#tempo">Tempo</a>
-      <a href="#fisio">Fisio</a>
-      <a href="#lirios">Lirios</a>
-      <a href="#jogos">Jogos</a>
-      <a href="#memorias">Memorias</a>
-      <a href="#carta">Carta</a>
+      <a href="#home">Home</a>
+      <a href="#colecao">Colecao</a>
+      <a href="#lookbook">Lookbook</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
     </nav>
   </header>
 
   <main>
-    <section class="hero" id="inicio">
-      <div class="hero-bg" aria-hidden="true">
-        <img src="assets/foto-03.jpeg" alt="">
-      </div>
-      <div class="hero-overlay"></div>
-      <div class="hero-content reveal">
-        <p class="eyebrow">Um site inteiro so para lembrar uma coisa</p>
-        <h1>Voce e incrivel, meu amor.</h1>
-        <p class="hero-text">
-          Bonita, inteligente, forte, carinhosa e dona de um futuro absurdo. Esse cantinho aqui e para voce abrir quando precisar lembrar o quanto eu acredito em voce.
-        </p>
+    <section class="hero" id="home">
+      <picture>
+        <img src="assets/banner.jpg" alt="Campanha BR GANG">
+      </picture>
+      <div class="hero-copy">
+        <h1>BR GANG</h1>
+        <p>Streetwear brasileiro.</p>
         <div class="hero-actions">
-          <a class="btn primary" href="#fisio">Ver seu futuro brilhando</a>
-          <button class="btn ghost" type="button" id="surpriseBtn">Me da uma frase</button>
-          <a class="btn music" href="#musica" id="playMusic">Nossa musica</a>
-          <button class="btn ghost" type="button" id="rainBtn">Chuva de lirios</button>
-        </div>
-      </div>
-      <div class="hero-card reveal">
-        <img src="assets/foto-09.jpeg" alt="Nos dois sorrindo juntos">
-        <p>Eu te amo hoje, amanha e em todos os planos que ainda vamos realizar.</p>
-      </div>
-    </section>
-
-    <section class="section time-section" id="tempo">
-      <div class="time-card reveal">
-        <p class="eyebrow">Nosso tempo</p>
-        <h2>Ha <span id="daysTogether">0</span> dias eu tenho sorte.</h2>
-        <p id="timeText">Esse contador marca o quanto nossa historia continua crescendo.</p>
-      </div>
-      <div class="message-card reveal">
-        <p class="eyebrow">Mensagem surpresa</p>
-        <h3>Um lembrete aleatorio para voce</h3>
-        <p id="randomMessage">Clique no botao para receber uma frase feita so para ela.</p>
-        <button class="mini-btn purple" type="button" id="messageBtn">Nova mensagem</button>
-      </div>
-    </section>
-
-    <section class="section intro" id="sobre">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Ela, do meu jeito de ver</p>
-        <h2>O tipo de pessoa que melhora qualquer lugar.</h2>
-      </div>
-      <div class="qualities">
-        <article class="quality reveal">
-          <span>01</span>
-          <h3>Linda sem esforco</h3>
-          <p>Tem um sorriso que muda meu dia, um olhar que acalma e uma presenca que deixa tudo mais leve.</p>
-        </article>
-        <article class="quality reveal">
-          <span>02</span>
-          <h3>Forte de verdade</h3>
-          <p>Mesmo quando o caminho aperta, voce continua. E essa coragem vai te levar muito longe.</p>
-        </article>
-        <article class="quality reveal">
-          <span>03</span>
-          <h3>Inteligente e dedicada</h3>
-          <p>Voce aprende, se esforca, insiste e cresce. O sucesso combina demais com voce.</p>
-        </article>
-        <article class="quality reveal">
-          <span>04</span>
-          <h3>Meu lugar favorito</h3>
-          <p>Entre fotos bobas, abracos e risadas, voce virou casa. E eu tenho muita sorte por isso.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section split" id="fisio">
-      <div class="future-copy reveal">
-        <p class="eyebrow">Futura fisioterapeuta</p>
-        <h2>Voce vai ser uma puta fisioterapeuta.</h2>
-        <p>
-          Porque voce tem o que nao se ensina em sala nenhuma: cuidado de verdade, paciencia, sensibilidade e uma vontade linda de fazer diferenca na vida das pessoas.
-        </p>
-        <p>
-          Cada prova, cada trabalho, cada dia cansativo e mais um degrau para a profissional incrivel que voce esta construindo. Voce merece todo sucesso do mundo, e eu vou estar aqui aplaudindo cada conquista.
-        </p>
-        <div class="promise">
-          <strong>Repete comigo:</strong>
-          <span>eu sou capaz, eu sou dedicada, eu mereco vencer.</span>
-        </div>
-      </div>
-      <div class="future-panel reveal">
-        <div class="badge">CRM do coracao</div>
-        <h3>Plano de carreira dela</h3>
-        <ul>
-          <li>Estudar com coragem, mesmo quando bater cansaco.</li>
-          <li>Confiar no proprio processo.</li>
-          <li>Cuidar de pessoas com tecnica e humanidade.</li>
-          <li>Virar referencia e conquistar tudo que merece.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="quote-band">
-      <div class="quote-inner reveal">
-        <p id="quoteText">"Voce nao precisa provar nada para ninguem. So continuar sendo essa mulher gigante que eu tenho orgulho de amar."</p>
-        <button type="button" id="nextQuote">Trocar frase</button>
-      </div>
-    </section>
-
-    <section class="section music-section" id="musica">
-      <div class="music-copy reveal">
-        <p class="eyebrow">Nossa trilha</p>
-        <h2>A musica do comeco do nosso relacionamento.</h2>
-        <p>
-          Agora o player fica visivel para ela apertar play direto. Se o YouTube bloquear dentro do navegador, deixei tambem um botao para abrir a musica em uma nova aba.
-        </p>
-      </div>
-      <div class="music-player reveal">
-        <div class="player-info">
-          <span>Nossa musica</span>
-          <strong>Do comeco de tudo</strong>
-          <a href="https://youtu.be/bPfhUpwdN-g?si=TO_ek1kkLmbCWDay" target="_blank" rel="noopener">Abrir no YouTube</a>
-        </div>
-        <iframe id="musicFrame" src="https://www.youtube.com/embed/bPfhUpwdN-g?rel=0" title="Nossa musica no YouTube" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      </div>
-    </section>
-
-    <section class="section lily-section" id="lirios">
-      <div class="lily-copy reveal">
-        <p class="eyebrow">Lirios para ela</p>
-        <h2>A flor que combina com a delicadeza e a forca dela.</h2>
-        <p>
-          O lirio tem essa beleza limpa, elegante e forte. Parece simples de longe, mas quando voce olha de perto percebe o quanto ele e especial. Igual voce.
-        </p>
-        <p>
-          Entao essa parte do site e um jardim roxo so seu: para lembrar que voce floresce ate nos dias dificeis, e que eu amo ver voce crescendo.
-        </p>
-      </div>
-      <div class="lily-garden reveal" aria-label="Jardim de lirios roxos">
-        <div class="lily">
-          <span></span><span></span><span></span><span></span><span></span>
-        </div>
-        <div class="lily small">
-          <span></span><span></span><span></span><span></span><span></span>
-        </div>
-        <div class="lily tall">
-          <span></span><span></span><span></span><span></span><span></span>
+          <a class="button button-dark" href="#colecao">Ver colecao</a>
+          <a class="button button-light" href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
         </div>
       </div>
     </section>
 
-    <section class="section games" id="jogos">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Minigames para ela</p>
-        <h2>Porque ate o site precisava ter um jeito bobo de arrancar sorriso.</h2>
+    <section class="section collection" id="colecao">
+      <div class="section-title">
+        <span>Colecao</span>
+        <h2>Drop 01</h2>
       </div>
-      <div class="game-grid">
-        <article class="game-card reveal">
-          <div class="game-topline">
-            <span>Quiz</span>
-            <strong id="quizScore">0/3</strong>
-          </div>
-          <h3>Quanto voce sabe que eu te admiro?</h3>
-          <p id="quizQuestion">Qual carreira vai ganhar uma profissional absurda?</p>
-          <div class="quiz-options" id="quizOptions"></div>
-          <small id="quizFeedback">Escolhe uma resposta, meu amor.</small>
-        </article>
 
-        <article class="game-card reveal">
-          <div class="game-topline">
-            <span>Memoria</span>
-            <strong id="memoryScore">0 pares</strong>
-          </div>
-          <h3>Jogo da memoria do nosso amor</h3>
-          <div class="memory-board" id="memoryBoard" aria-label="Jogo da memoria"></div>
-          <button class="mini-btn" type="button" id="resetMemory">Recomecar</button>
-        </article>
-
-        <article class="game-card reveal">
-          <div class="game-topline">
-            <span>Medidor</span>
-            <strong id="lovePercent">100%</strong>
-          </div>
-          <h3>Medidor oficial de amor</h3>
-          <div class="meter">
-            <div id="loveMeter"></div>
-          </div>
-          <p id="loveText">Resultado cientifico: voce e o amor da minha vida.</p>
-          <button class="mini-btn" type="button" id="boostLove">Aumentar amor</button>
-        </article>
-
-        <article class="game-card catch-card reveal">
-          <div class="game-topline">
-            <span>Lirios</span>
-            <strong id="catchScore">0 pts</strong>
-          </div>
-          <h3>Pegue os lirios dela</h3>
-          <p>Clique nos lirios antes deles cairem. Cada um vira uma frase carinhosa.</p>
-          <div class="catch-game" id="catchGame">
-            <div class="catch-garden" aria-hidden="true">
-              <div class="mini-lily bloom-a"><span></span><span></span><span></span><span></span><span></span></div>
-              <div class="mini-lily bloom-b"><span></span><span></span><span></span><span></span><span></span></div>
-              <div class="mini-lily bloom-c"><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="product-grid">
+        <article class="product">
+          <a class="product-image" href="#contato" aria-label="Ver Camiseta Statue">
+            <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=900&q=82" alt="Camiseta preta streetwear">
+          </a>
+          <div class="product-meta">
+            <div>
+              <h3>Camiseta Statue</h3>
+              <p>Preta</p>
             </div>
-            <button class="mini-btn purple" type="button" id="startCatch">Comecar</button>
+            <strong>R$ 189</strong>
           </div>
-          <small id="catchMessage">Pronta para encher esse jardim?</small>
+          <a class="product-link" href="#contato">Comprar</a>
+        </article>
+
+        <article class="product">
+          <a class="product-image" href="#contato" aria-label="Ver Moletom Bandana">
+            <img src="https://images.unsplash.com/photo-1516826957135-700dedea698c?auto=format&fit=crop&w=900&q=82" alt="Moletom preto em editorial urbano">
+          </a>
+          <div class="product-meta">
+            <div>
+              <h3>Moletom Bandana</h3>
+              <p>Washed black</p>
+            </div>
+            <strong>R$ 389</strong>
+          </div>
+          <a class="product-link" href="#contato">Comprar</a>
+        </article>
+
+        <article class="product">
+          <a class="product-image" href="#contato" aria-label="Ver Bone Logo">
+            <img src="https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=900&q=82" alt="Bone preto em fundo urbano">
+          </a>
+          <div class="product-meta">
+            <div>
+              <h3>Bone Logo</h3>
+              <p>Preto</p>
+            </div>
+            <strong>R$ 149</strong>
+          </div>
+          <a class="product-link" href="#contato">Comprar</a>
+        </article>
+
+        <article class="product">
+          <a class="product-image" href="#contato" aria-label="Ver Calca Cargo">
+            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=82" alt="Calca cargo em look urbano">
+          </a>
+          <div class="product-meta">
+            <div>
+              <h3>Calca Cargo</h3>
+              <p>Cinza escuro</p>
+            </div>
+            <strong>R$ 329</strong>
+          </div>
+          <a class="product-link" href="#contato">Comprar</a>
         </article>
       </div>
     </section>
 
-    <section class="section memories" id="memorias">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Nossa colecao</p>
-        <h2>Algumas provas de que a vida fica melhor com voce.</h2>
+    <section class="lookbook" id="lookbook" aria-label="Lookbook BR GANG">
+      <div class="lookbook-heading">
+        <span>Lookbook</span>
+        <h2>Rua, roupa e presenca.</h2>
       </div>
-      <div class="mosaic" id="gallery">
-        <button class="photo tall reveal" type="button" data-src="assets/foto-01.jpeg" data-caption="A gente no espelho, do jeitinho que vira lembranca boa.">
-          <img src="assets/foto-01.jpeg" alt="Casal tirando foto no espelho">
-        </button>
-        <button class="photo reveal" type="button" data-src="assets/foto-02.jpeg" data-caption="Dois bobos, uma foto e um monte de amor.">
-          <img src="assets/foto-02.jpeg" alt="Casal fazendo pose no espelho">
-        </button>
-        <button class="photo wide reveal" type="button" data-src="assets/foto-05.jpeg" data-caption="Por do sol, abraco e aquela certeza de que vale a pena.">
-          <img src="assets/foto-05.jpeg" alt="Casal em um por do sol">
-        </button>
-        <button class="photo reveal" type="button" data-src="assets/foto-07.jpeg" data-caption="Te amo. Simples assim. Forte assim.">
-          <img src="assets/foto-07.jpeg" alt="Selfie do casal com fundo vermelho">
-        </button>
-        <button class="photo tall reveal" type="button" data-src="assets/foto-06.jpeg" data-caption="A foto mais seria que claramente nao deu certo, ainda bem.">
-          <img src="assets/foto-06.jpeg" alt="Casal fazendo biquinho dentro do carro">
-        </button>
-        <button class="photo reveal" type="button" data-src="assets/foto-08.jpeg" data-caption="Familia, carinho e momentos que ficam guardados.">
-          <img src="assets/foto-08.jpeg" alt="Casal com criancas em uma igreja">
-        </button>
-        <button class="photo reveal" type="button" data-src="assets/foto-10.jpeg" data-caption="Esse rostinho merece o mundo inteiro.">
-          <img src="assets/foto-10.jpeg" alt="Close da namorada sorrindo">
-        </button>
-        <button class="photo wide reveal" type="button" data-src="assets/foto-09.jpeg" data-caption="Sorriso de quem sabe que tem coisa linda pela frente.">
-          <img src="assets/foto-09.jpeg" alt="Selfie do casal na igreja">
-        </button>
+      <div class="lookbook-grid">
+        <figure class="look look-large">
+          <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=82" alt="Editorial de moda urbana">
+        </figure>
+        <figure class="look">
+          <img src="https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?auto=format&fit=crop&w=900&q=82" alt="Retrato streetwear">
+        </figure>
+        <figure class="look look-tall">
+          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=82" alt="Look streetwear em exterior">
+        </figure>
+        <figure class="look">
+          <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=900&q=82" alt="Campanha de moda urbana">
+        </figure>
       </div>
     </section>
 
-    <section class="section love-notes">
-      <div class="note reveal">
-        <h2>Quando voce duvidar de si</h2>
-        <p>Lembra que eu vejo em voce uma mulher absurda: capaz, linda, estudiosa, sensivel e cheia de luz. O mundo ainda vai reconhecer tudo isso.</p>
+    <section class="about" id="sobre">
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1000&q=82" alt="Editorial urbano BR GANG">
       </div>
-      <div class="note dark reveal">
-        <h2>Quando estiver cansada</h2>
-        <p>Respira. Descansa. Depois continua. O seu sonho nao precisa ser vencido em um dia so. Um passo por vez tambem chega la.</p>
-      </div>
-      <div class="note reveal">
-        <h2>Quando conquistar</h2>
-        <p>Eu vou estar do seu lado falando: eu sabia. Porque eu sempre soube que voce nasceu para coisas grandes.</p>
+      <div class="about-copy">
+        <span>Sobre</span>
+        <p>BR GANG e uma marca independente de streetwear brasileiro, criada para representar atitude, rua e identidade.</p>
       </div>
     </section>
 
-    <section class="section read-me" id="leia-me">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Leia-me quando</p>
-        <h2>Cartinhas para abrir quando o coracao pedir.</h2>
+    <section class="instagram" aria-label="Instagram BR GANG">
+      <div class="section-title">
+        <span>Instagram</span>
+        <h2>@brgang</h2>
       </div>
-      <div class="read-grid">
-        <button class="read-card reveal" type="button" data-title="Leia-me quando estiver triste" data-message="Meu amor, se hoje estiver pesado, lembra que voce nao precisa carregar tudo sozinha. Respira um pouco, solta o mundo por alguns minutos e deixa meu carinho chegar ai. Voce e amada nos dias leves e nos dias dificeis tambem. Eu estou com voce.">
-          <span>Triste</span>
-          <strong>Quando o dia pesar</strong>
-        </button>
-        <button class="read-card reveal" type="button" data-title="Leia-me quando estiver cansada" data-message="Descansa, meu amor. O seu sonho nao perde valor porque voce precisou pausar. Voce esta construindo uma vida linda, mas ate as pessoas mais fortes precisam de colo, agua, comida e silencio. Um passo por vez ainda e caminho.">
-          <span>Cansada</span>
-          <strong>Quando faltar energia</strong>
-        </button>
-        <button class="read-card reveal" type="button" data-title="Leia-me quando duvidar de voce" data-message="Eu queria que voce pudesse se ver pelos meus olhos por um minuto. Voce e inteligente, dedicada, linda e capaz de ir muito longe. Essa futura fisioterapeuta incrivel ja existe em voce, so esta sendo lapidada dia apos dia.">
-          <span>Insegura</span>
-          <strong>Quando duvidar de si</strong>
-        </button>
-        <button class="read-card reveal" type="button" data-title="Leia-me quando estiver com saudade" data-message="Se a saudade apertar, lembra que tem um pedaco meu sempre querendo estar perto de voce. Fecha os olhos e pensa no meu abraco. Eu tambem sinto sua falta, tambem penso em voce e tambem conto os minutos para te ver.">
-          <span>Saudade</span>
-          <strong>Quando quiser meu abraco</strong>
-        </button>
-        <button class="read-card reveal" type="button" data-title="Leia-me quando estiver feliz" data-message="Se voce esta feliz, guarda esse momento com carinho. Eu amo imaginar seu sorriso aparecendo sem pedir licenca. Que venham muitos dias assim, porque voce merece uma vida cheia de motivos para comemorar.">
-          <span>Feliz</span>
-          <strong>Quando o sorriso vier</strong>
-        </button>
-        <button class="read-card reveal" type="button" data-title="Leia-me antes de uma prova" data-message="Vai com calma e confia no que voce construiu. Voce estudou, tentou, aprendeu e chegou ate aqui. Nenhuma prova define o tamanho da mulher incrivel que voce e, mas eu sei que voce tem tudo para mandar bem.">
-          <span>Prova</span>
-          <strong>Quando precisar de coragem</strong>
-        </button>
-      </div>
-    </section>
-
-    <section class="section timeline" id="linha-do-tempo">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Linha do tempo</p>
-        <h2>Alguns capitulos bonitos da nossa historia.</h2>
-      </div>
-      <div class="timeline-list">
-        <article class="timeline-item reveal">
-          <span>Comeco</span>
-          <p>A fase em que tudo foi virando assunto, saudade e vontade de ficar cada vez mais perto.</p>
-        </article>
-        <article class="timeline-item reveal">
-          <span>Fotos</span>
-          <p>Cada espelho, sorriso e pose boba virou prova de que a gente combina ate no improviso.</p>
-        </article>
-        <article class="timeline-item reveal">
-          <span>Futuro</span>
-          <p>Daqui para frente tem muito sonho, muita conquista e muita comemoracao nossa pela frente.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="letter" id="carta">
-      <div class="envelope reveal" id="envelope">
-        <button class="envelope-front" type="button" id="openLetter">
-          <span>abrir carta</span>
-        </button>
-        <div class="letter-paper">
-          <p class="eyebrow">Uma carta pequena, mas sincera</p>
-          <h2>Para voce, meu amor</h2>
-          <p>
-            Eu queria te dar algo que ficasse guardado de um jeito diferente. Entao fiz esse site para voce lembrar que e amada, admirada e vista. Eu vejo seu esforco, sua beleza, seu jeito de cuidar, sua inteligencia e o tamanho do seu futuro.
-          </p>
-          <p>
-            Voce merece todo o sucesso. Merece dias leves, oportunidades enormes, conquistas bonitas e gente que reconheca o quanto voce e especial. E eu quero estar perto para comemorar cada passo.
-          </p>
-          <p class="signature">Com amor, do seu namorado.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="secret-section">
-      <div class="secret-card reveal">
-        <p class="eyebrow">Final secreto</p>
-        <h2>Tem mais uma coisa.</h2>
-        <button class="btn primary" type="button" id="secretBtn">Desbloquear surpresa final</button>
-        <p id="secretText" hidden>Eu amo seu jeito, sua risada, sua coragem, seus sonhos, sua beleza e ate suas manias. Se esse site tivesse mil paginas, ainda faltaria espaco para dizer o quanto voce e especial para mim.</p>
+      <div class="instagram-grid">
+        <img src="https://images.unsplash.com/photo-1506152983158-b4a74a01c721?auto=format&fit=crop&w=700&q=80" alt="Post BR GANG 1">
+        <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=700&q=80" alt="Post BR GANG 2">
+        <img src="https://images.unsplash.com/photo-1516257984-b1b4d707412e?auto=format&fit=crop&w=700&q=80" alt="Post BR GANG 3">
+        <img src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=700&q=80" alt="Post BR GANG 4">
+        <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=700&q=80" alt="Post BR GANG 5">
+        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=700&q=80" alt="Post BR GANG 6">
       </div>
     </section>
   </main>
 
-  <div class="modal" id="photoModal" aria-hidden="true" role="dialog" aria-label="Foto ampliada">
-    <button class="modal-close" type="button" aria-label="Fechar foto">x</button>
-    <img src="assets/foto-01.jpeg" alt="">
-    <p></p>
-  </div>
+  <footer class="footer" id="contato">
+    <div class="footer-brand">
+      <img src="assets/logo.png" alt="BR GANG">
+      <span>BR GANG</span>
+    </div>
+    <nav aria-label="Links do rodape">
+      <a href="#colecao">Colecao</a>
+      <a href="#lookbook">Lookbook</a>
+      <a href="#sobre">Sobre</a>
+      <a href="https://wa.me/5500000000000" target="_blank" rel="noopener">WhatsApp</a>
+    </nav>
+  </footer>
 
   <script src="script.js"></script>
 </body>
